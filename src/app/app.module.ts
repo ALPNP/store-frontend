@@ -3,18 +3,28 @@ import {NgModule, APP_INITIALIZER} from '@angular/core';
 import {AppComponent} from './app.component';
 import {HttpModule} from "@angular/http";
 import {ConfigService} from "./services/config/config.service";
+import {AdmDashboardModule} from "./modules/adm-dashboard/adm-dashboard.module";
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import {AppRoutingModule} from "./modules/app-routing/app-routing.module";
+import {RouterModule} from "@angular/router";
 
-function initConfig(configService: ConfigService) {
+export function initConfig(configService: ConfigService) {
     return () => configService.load();
 }
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        PageNotFoundComponent
     ],
     imports: [
         BrowserModule,
-        HttpModule
+        HttpModule,
+        RouterModule,
+        // routed modules
+        AdmDashboardModule,
+        // routed modules end
+        AppRoutingModule,
     ],
     providers: [
         ConfigService,

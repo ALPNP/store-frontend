@@ -14,7 +14,7 @@ export class ConfigService {
     constructor(private http: Http) {
     }
 
-    load(): Promise {
+    load(): Promise<boolean> {
         return new Promise((resolve, reject) => {
             let url = `${this.configPath}?random=${Math.random()}`;
             this.http.get(url)
