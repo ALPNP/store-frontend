@@ -7,11 +7,10 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class ConfigService {
-
     configPath: string = '../../config.json';
     config: any;
 
-    constructor(private http: Http) {
+    constructor(protected http: Http) {
     }
 
     load(): Promise<boolean> {
@@ -29,5 +28,15 @@ export class ConfigService {
                     resolve(false);
                 });
         });
+    }
+
+    get(key: string): any {
+        let result = this.config[key];
+        if (result) {
+            return result;
+        } else {
+            console.error('Property' + key + 'not found in the configuration file');
+            return null;
+        }
     }
 }
