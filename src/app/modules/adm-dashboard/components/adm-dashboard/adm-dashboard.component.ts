@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ConfigService} from "../../../../services/config/config.service";
 
 @Component({
     selector: 'sf-adm-dashboard',
@@ -7,10 +6,8 @@ import {ConfigService} from "../../../../services/config/config.service";
     styleUrls: ['./adm-dashboard.component.scss']
 })
 export class AdmDashboardComponent implements OnInit {
-    appName: string;
 
-    constructor(protected configService: ConfigService) {
-        this.appName = configService.get('STORE_NAME');
+    constructor() {
     }
 
     ngOnInit() {

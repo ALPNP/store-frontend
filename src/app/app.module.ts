@@ -7,6 +7,8 @@ import {AdmDashboardModule} from "./modules/adm-dashboard/adm-dashboard.module";
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {AppRoutingModule} from "./modules/app-routing/app-routing.module";
 import {RouterModule} from "@angular/router";
+import {PubMainPageComponent} from './components/pub-main-page/pub-main-page.component';
+import {PubLoginPageComponent} from './pub-login-page/pub-login-page.component';
 
 export function initConfig(configService: ConfigService) {
     return () => configService.load();
@@ -15,7 +17,9 @@ export function initConfig(configService: ConfigService) {
 @NgModule({
     declarations: [
         AppComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        PubMainPageComponent,
+        PubLoginPageComponent
     ],
     imports: [
         BrowserModule,

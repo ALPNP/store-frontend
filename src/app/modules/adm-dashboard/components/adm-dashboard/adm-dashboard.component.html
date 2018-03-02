@@ -1,12 +1,7 @@
-<h2>Панель управления {{appName || ''}}</h2>
-<ul>
-    <li>
-        <a>Каталог</a>
-    </li>
-    <li>
-        <a>Настройки</a>
-    </li>
-    <li>
-        <a>Статистика</a>
-    </li>
-</ul>
+<h2>Панель управления</h2>
+<nav>
+    <a routerLink="catalog" routerLinkActive="active-route">Каталог</a>
+    <a routerLink="settings" routerLinkActive="active-route">Настройки</a>
+    <a routerLink="stats" routerLinkActive="active-route">Статистика</a>
+</nav>
+<router-outlet></router-outlet>
