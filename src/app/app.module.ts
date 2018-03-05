@@ -9,6 +9,9 @@ import {AppRoutingModule} from "./modules/app-routing/app-routing.module";
 import {RouterModule} from "@angular/router";
 import {PubMainPageComponent} from './components/pub-main-page/pub-main-page.component';
 import {PubLoginPageComponent} from './pub-login-page/pub-login-page.component';
+import {AuthModule} from "./modules/auth/auth.module";
+import {AuthService} from "./services/auth/auth.service";
+import {SimpleService} from "./services/simple/simple.service";
 
 export function initConfig(configService: ConfigService) {
     return () => configService.load();
@@ -24,6 +27,7 @@ export function initConfig(configService: ConfigService) {
     imports: [
         BrowserModule,
         HttpModule,
+        AuthModule,
         RouterModule,
         // routed modules
         AdmDashboardModule,
@@ -37,7 +41,9 @@ export function initConfig(configService: ConfigService) {
             useFactory: initConfig,
             deps: [ConfigService],
             multi: true
-        }
+        },
+        AuthService,
+        SimpleService
     ],
     bootstrap: [AppComponent]
 })
