@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {SimpleService} from "../simple/simple.service";
 import {ConfigService} from "../config/config.service";
+import {UserModel} from "../../models/user-model";
 
 @Injectable()
 export class AuthService extends SimpleService{
@@ -18,13 +19,12 @@ export class AuthService extends SimpleService{
                 protected authHttp: AuthHttp,
                 protected configService: ConfigService) {
         super(configService, http);
-        this.authUrl = '/auth';
+        this.authUrl = 'auth';
     }
 
-    public login(name: string, password: string): any {
-        const body = 'name=' + name + '&password=' + password;
+    public login(user: UserModel): any {
         let headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post(`${this.apiEndpoint}${this.authUrl}`, body, headers)
+        return this.http.post(`${this.apiEndpoint}${this.authUrl}`, user, headers)
             .map((res: Response) => {
                 console.log(res);
             })

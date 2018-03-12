@@ -12,6 +12,7 @@ import {PubLoginPageComponent} from './pub-login-page/pub-login-page.component';
 import {AuthModule} from "./modules/auth/auth.module";
 import {AuthService} from "./services/auth/auth.service";
 import {SimpleService} from "./services/simple/simple.service";
+import {ReactiveFormsModule} from "@angular/forms";
 
 export function initConfig(configService: ConfigService) {
     return () => configService.load();
@@ -33,6 +34,7 @@ export function initConfig(configService: ConfigService) {
         AdmDashboardModule,
         // routed modules end
         AppRoutingModule,
+        ReactiveFormsModule
     ],
     providers: [
         ConfigService,
