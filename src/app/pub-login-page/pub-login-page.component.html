@@ -1,3 +1,11 @@
-<p>
-  pub-login-page works!
-</p>
+<p><strong>Авторизация</strong></p>
+<form [formGroup]="loginForm" (ngSubmit)="formSubmit()">
+    <label>Имя пользователя:
+        <input type="text" formControlName="userName">
+    </label>
+    <label>Пароль:
+        <input type="password" formControlName="password">
+    </label>
+    <button [disabled]="!loginForm.valid" type="submit">Войти</button>
+</form>
+

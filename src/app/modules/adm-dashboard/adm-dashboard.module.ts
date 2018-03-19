@@ -5,10 +5,12 @@ import {AdmDashboardRoutingModule} from "./modules/adm-dashboard-routing/adm-das
 import {AdmDashboardStatsComponent} from "./components/adm-dashboard-stats/adm-dashboard-stats.component";
 import {AdmDashboardSettingsComponent} from "./components/adm-dashboard-settings/adm-dashboard-settings.component";
 import {AdmDashboardProductCatalogComponent} from "./components/adm-dashboard-product-catalog/adm-dashboard-product-catalog.component";
+import {AuthModule} from "../auth/auth.module";
 
 @NgModule({
     imports: [
         CommonModule,
+        AuthModule,
         AdmDashboardRoutingModule
     ],
     declarations: [
