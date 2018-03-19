@@ -13,6 +13,7 @@ import {AuthModule} from "./modules/auth/auth.module";
 import {AuthService} from "./services/auth/auth.service";
 import {SimpleService} from "./services/simple/simple.service";
 import {ReactiveFormsModule} from "@angular/forms";
+import {AuthGuard} from "./auth.guard";
 
 export function initConfig(configService: ConfigService) {
     return () => configService.load();
@@ -45,6 +46,7 @@ export function initConfig(configService: ConfigService) {
             multi: true
         },
         AuthService,
+        AuthGuard,
         SimpleService
     ],
     bootstrap: [AppComponent]

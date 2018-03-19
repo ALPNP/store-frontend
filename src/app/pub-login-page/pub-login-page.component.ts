@@ -3,6 +3,7 @@ import {AuthService} from "../services/auth/auth.service";
 import {Router} from "@angular/router";
 import {UserModel} from "../models/user-model";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {ErrorObservable} from "rxjs/observable/ErrorObservable";
 
 @Component({
     selector: 'sf-pub-login-page',
@@ -16,23 +17,37 @@ export class PubLoginPageComponent implements OnInit {
 
     constructor(private router: Router,
                 private auth: AuthService) {
-        this.formInit();
     }
 
     formInit() {
         this.loginForm = new FormGroup({
-            userName: new FormControl('', Validators.required),
-            password: new FormControl('', Validators.required)
+            userName: new FormControl('Alex', Validators.required),
+            password: new FormControl('123', Validators.required)
         });
     }
 
     ngOnInit() {
+        this.formInit();
+        this.isLoggedIn();
+    }
+
+    isLoggedIn(): void {
+        if (this.auth.isLoggedIn()) {
+            if (this.router.url === '/login') {
+                this.router.navigate(['/admDashboard/catalog']);
+            }
+        }
     }
 
     formSubmit() {
         this.user = new UserModel(this.loginForm.value);
         this.auth.login(this.user).subscribe((data) => {
-            console.log(data);
+            if (data instanceof ErrorObservable) {
+                this.loginForm.reset();
+                alert(data.error);
+            } else if (data === true) {
+                this.router.navigate(['/admDashboard/catalog']);
+            }
         });
     }
 }

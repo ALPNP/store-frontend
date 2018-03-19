@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {AuthHttp, AuthConfig} from "angular2-jwt";
 import {RequestOptions, Http} from "@angular/http";
+import {AuthWidgetComponent} from "./components/auth-widget/auth-widget.component";
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
@@ -10,6 +11,12 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 }
 
 @NgModule({
+    declarations: [
+        AuthWidgetComponent
+    ],
+    exports: [
+        AuthWidgetComponent
+    ],
     providers: [
         {
             provide: AuthHttp,
