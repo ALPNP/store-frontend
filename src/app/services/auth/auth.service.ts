@@ -16,7 +16,6 @@ export class AuthService extends SimpleService {
 
     constructor(protected http: Http,
                 protected router: Router,
-                protected authHttp: AuthHttp,
                 protected configService: ConfigService) {
         super(configService, http);
         this.authUrl = 'auth';
@@ -54,5 +53,9 @@ export class AuthService extends SimpleService {
     public logOut(): void {
         this.removeAuthData();
         this.router.navigate(['/login']);
+    }
+
+    public getUserName(): string {
+        return this.userName;
     }
 }
