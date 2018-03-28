@@ -8,11 +8,15 @@ import {AdmDashboardProductCatalogComponent} from "./components/adm-dashboard-pr
 import {AuthModule} from "../auth/auth.module";
 import {AdmDashboardProductAddComponent} from "./components/adm-dashboard-product-add/adm-dashboard-product-add.component";
 import {AdmDashboardProductListComponent} from "./components/adm-dashboard-product-list/adm-dashboard-product-list.component";
+import {AdmDashboardProductService} from "./services/adm-dashboard-product/adm-dashboard-product.service";
+import {ReactiveFormsModule} from "@angular/forms";
+import {AdmDashboardSettingsCategoriesComponent} from "../../adm-dashboard-settings-categories/adm-dashboard-settings-categories.component";
 
 @NgModule({
     imports: [
         CommonModule,
         AuthModule,
+        ReactiveFormsModule,
         AdmDashboardRoutingModule
     ],
     declarations: [
@@ -21,7 +25,11 @@ import {AdmDashboardProductListComponent} from "./components/adm-dashboard-produ
         AdmDashboardSettingsComponent,
         AdmDashboardStatsComponent,
         AdmDashboardProductAddComponent,
-        AdmDashboardProductListComponent
+        AdmDashboardProductListComponent,
+        AdmDashboardSettingsCategoriesComponent
+    ],
+    providers: [
+        AdmDashboardProductService
     ]
 })
 export class AdmDashboardModule {

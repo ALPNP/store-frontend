@@ -1,5 +1,15 @@
 <div>
-    <p>adm-dashboard-product-add works!</p>
-    <button type="button" routerLink="/admDashboard/catalog/">Отмена</button>
-    <button type="button" (click)="save()">Сохранить</button>
+    <p>Добавление продукта:</p>
+    <div class="product-form">
+        <form [formGroup]="productForm" (ngSubmit)="save()" #form="ngForm">
+            <label>Название продукта:
+                <input type="text" formControlName="productName">
+            </label>
+        </form>
+        <br>
+    </div>
+    <div class="product-actions">
+        <button class="product-actions__cancel" type="button" routerLink="/admDashboard/catalog/">Отмена</button>
+        <button class="product-actions__submit" type="submit" [disabled]="!productForm.valid" (click)="form.ngSubmit.emit()">Сохранить</button>
+    </div>
 </div>

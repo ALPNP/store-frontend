@@ -7,6 +7,7 @@ import {AdmDashboardStatsComponent} from "../../components/adm-dashboard-stats/a
 import {AuthGuard} from "../../../../auth.guard";
 import {AdmDashboardProductAddComponent} from "../../components/adm-dashboard-product-add/adm-dashboard-product-add.component";
 import {AdmDashboardProductListComponent} from "../../components/adm-dashboard-product-list/adm-dashboard-product-list.component";
+import {AdmDashboardSettingsCategoriesComponent} from "../../../../adm-dashboard-settings-categories/adm-dashboard-settings-categories.component";
 
 const admDashboardCatalogChildRoutes: Routes = [
     {path: '', redirectTo: 'list', pathMatch: 'full'},
@@ -14,9 +15,13 @@ const admDashboardCatalogChildRoutes: Routes = [
     {path: 'list', component: AdmDashboardProductListComponent, canActivate: [AuthGuard]}
 ];
 
+const admDashboardSettingsChildRoutes: Routes = [
+    {path: 'categories', component: AdmDashboardSettingsCategoriesComponent, canActivate: [AuthGuard]}
+];
+
 const admDashboardChildRoutes: Routes = [
     {path: 'catalog', component: AdmDashboardProductCatalogComponent, canActivate: [AuthGuard], children: admDashboardCatalogChildRoutes},
-    {path: 'settings', component: AdmDashboardSettingsComponent, canActivate: [AuthGuard]},
+    {path: 'settings', component: AdmDashboardSettingsComponent, canActivate: [AuthGuard], children: admDashboardSettingsChildRoutes},
     {path: 'stats', component: AdmDashboardStatsComponent, canActivate: [AuthGuard]}
 ];
 
