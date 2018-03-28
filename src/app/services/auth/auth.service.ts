@@ -52,7 +52,7 @@ export class AuthService extends SimpleService {
 
     public logOut(): void {
         this.removeAuthData();
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
     }
 
     public getUserName(): string {
