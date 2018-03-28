@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {JwtHelper, AuthHttp, tokenNotExpired} from "angular2-jwt";
+import {JwtHelper, tokenNotExpired} from "angular2-jwt";
 import {Http} from "@angular/http";
 import {Response, Headers} from '@angular/http';
 import {Router} from "@angular/router";
@@ -16,7 +16,6 @@ export class AuthService extends SimpleService {
 
     constructor(protected http: Http,
                 protected router: Router,
-                protected authHttp: AuthHttp,
                 protected configService: ConfigService) {
         super(configService, http);
         this.authUrl = 'auth';
@@ -54,5 +53,18 @@ export class AuthService extends SimpleService {
     public logOut(): void {
         this.removeAuthData();
         this.router.navigate(['/login']);
+    }
+
+    public getUserName(): string {
+        return this.userName;
+    }
+
+    public init(): void {
+        if (this.isLoggedIn()) {
+            if (!this.userName) {
+                let token = localStorage.getItem('token');
+                this.userName = this.jwtHelper.decodeToken(token)['userName'];
+            }
+        }
     }
 }

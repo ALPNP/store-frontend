@@ -6,6 +6,8 @@ import {AdmDashboardStatsComponent} from "./components/adm-dashboard-stats/adm-d
 import {AdmDashboardSettingsComponent} from "./components/adm-dashboard-settings/adm-dashboard-settings.component";
 import {AdmDashboardProductCatalogComponent} from "./components/adm-dashboard-product-catalog/adm-dashboard-product-catalog.component";
 import {AuthModule} from "../auth/auth.module";
+import {AdmDashboardProductAddComponent} from "./components/adm-dashboard-product-add/adm-dashboard-product-add.component";
+import {AdmDashboardProductListComponent} from "./components/adm-dashboard-product-list/adm-dashboard-product-list.component";
 
 @NgModule({
     imports: [
@@ -17,7 +19,9 @@ import {AuthModule} from "../auth/auth.module";
         AdmDashboardComponent,
         AdmDashboardProductCatalogComponent,
         AdmDashboardSettingsComponent,
-        AdmDashboardStatsComponent
+        AdmDashboardStatsComponent,
+        AdmDashboardProductAddComponent,
+        AdmDashboardProductListComponent
     ]
 })
 export class AdmDashboardModule {

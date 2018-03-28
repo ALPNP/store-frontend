@@ -34,7 +34,7 @@ export class PubLoginPageComponent implements OnInit {
     isLoggedIn(): void {
         if (this.auth.isLoggedIn()) {
             if (this.router.url === '/login') {
-                this.router.navigate(['/admDashboard/catalog']);
+                this.router.navigate(['/admDashboard']);
             }
         }
     }
@@ -46,7 +46,7 @@ export class PubLoginPageComponent implements OnInit {
                 this.loginForm.reset();
                 alert(data.error);
             } else if (data === true) {
-                this.router.navigate(['/admDashboard/catalog']);
+                this.router.navigate(['/admDashboard']);
             }
         });
     }

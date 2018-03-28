@@ -1,0 +1,43 @@
+.auth-widget {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    float: right;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    border-radius: 30px;
+}
+
+.auth-widget_active {
+    background: #F3F3F3;
+}
+
+.auth-widget__user-name {
+    line-height: 8px;
+    text-align: center;
+    cursor: default;
+}
+
+.layout-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.user-menu {
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    width: auto;
+    height: auto;
+    background: #F3F3F3;
+}
+
+.user-menu__items-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 5px;
+}

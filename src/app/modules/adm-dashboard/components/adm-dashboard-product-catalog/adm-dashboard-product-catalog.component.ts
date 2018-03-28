@@ -12,5 +12,4 @@ export class AdmDashboardProductCatalogComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }

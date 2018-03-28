@@ -1,3 +1,17 @@
-<p>
-  auth-widget works!
-</p>
+<div (click)="userMenu()" class="auth-widget auth-widget_active">
+    <p class="auth-widget__user-name" *ngIf="isLoggedIn; else loginTemplate">{{userName}}</p>
+
+    <ng-template #loginTemplate>
+        <p (click)="login()" class="auth-widget__user-name">Вход</p>
+    </ng-template>
+</div>
+<div (click)="userMenu()" class="layout-wrapper" *ngIf="userMenuVisible">
+    <div class="user-menu">
+        <ul class="user-menu__items-list">
+            <li>
+                <button (click)="logOut()" type="button">Выход</button>
+                <button (click)="manage()" type="button">Управление</button>
+            </li>
+        </ul>
+    </div>
+</div>
