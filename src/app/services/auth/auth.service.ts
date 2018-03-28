@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {JwtHelper, AuthHttp, tokenNotExpired} from "angular2-jwt";
+import {JwtHelper, tokenNotExpired} from "angular2-jwt";
 import {Http} from "@angular/http";
 import {Response, Headers} from '@angular/http';
 import {Router} from "@angular/router";
@@ -57,5 +57,14 @@ export class AuthService extends SimpleService {
 
     public getUserName(): string {
         return this.userName;
+    }
+
+    public init(): void {
+        if (this.isLoggedIn()) {
+            if (!this.userName) {
+                let token = localStorage.getItem('token');
+                this.userName = this.jwtHelper.decodeToken(token)['userName'];
+            }
+        }
     }
 }
