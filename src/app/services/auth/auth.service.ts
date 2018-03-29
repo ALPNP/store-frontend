@@ -28,7 +28,7 @@ export class AuthService extends SimpleService {
                 let response = res.json();
 
                 if (response['success']) {
-                    let token = response['content']['token'];
+                    let token = response['content']['token'].split(' ')[1];
                     localStorage.setItem('token', token);
                     this.userName = this.jwtHelper.decodeToken(token)['userName'];
                     return true;

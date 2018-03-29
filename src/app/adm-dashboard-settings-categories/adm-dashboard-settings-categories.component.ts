@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AdmDashboardCategoriesService} from "../modules/adm-dashboard/services/adm-dashboard-categories/adm-dashboard-categories.service";
+import {CategoryModel} from "../models/category-model";
 
 @Component({
     selector: 'sf-adm-dashboard-settings-categories',
@@ -7,11 +8,14 @@ import {AdmDashboardCategoriesService} from "../modules/adm-dashboard/services/a
     styleUrls: ['./adm-dashboard-settings-categories.component.scss']
 })
 export class AdmDashboardSettingsCategoriesComponent implements OnInit {
+    categoriesList: CategoryModel[];
 
-    constructor(private categories: AdmDashboardCategoriesService) {
+    constructor(private categoriesService: AdmDashboardCategoriesService) {
     }
 
     ngOnInit() {
+        this.categoriesService.fetch().subscribe((categories: any) => {
+            this.categoriesList = categories;
+        });
     }
-
 }

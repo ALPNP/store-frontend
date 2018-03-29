@@ -12,6 +12,7 @@ import {AdmDashboardProductService} from "./services/adm-dashboard-product/adm-d
 import {ReactiveFormsModule} from "@angular/forms";
 import {AdmDashboardSettingsCategoriesComponent} from "../../adm-dashboard-settings-categories/adm-dashboard-settings-categories.component";
 import {AdmDashboardCategoriesService} from "./services/adm-dashboard-categories/adm-dashboard-categories.service";
+import {CatFilterPipe} from "./pipes/filter.pipe";
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import {AdmDashboardCategoriesService} from "./services/adm-dashboard-categories
         AdmDashboardStatsComponent,
         AdmDashboardProductAddComponent,
         AdmDashboardProductListComponent,
-        AdmDashboardSettingsCategoriesComponent
+        AdmDashboardSettingsCategoriesComponent,
+        CatFilterPipe
     ],
     providers: [
         AdmDashboardProductService,
