@@ -1,3 +1,12 @@
-<p>
-  adm-dashboard-settings-categories works!
-</p>
+<div class="categories-layout">
+    <div class="categories-toolbar">
+        <button class="categories-toolbar__add-button" type="button">Добавить</button>
+    </div>
+    <div class="categories-list">
+        <div class="categories-list__item" *ngFor="let category of categoriesList | catFilter">
+            {{category.name}}
+            {{category.parentId}}
+            <button value="{{category._id}}" class="categories-list__item-button">Удалить</button>
+        </div>
+    </div>
+</div>
