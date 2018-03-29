@@ -11,6 +11,7 @@ import {AdmDashboardProductListComponent} from "./components/adm-dashboard-produ
 import {AdmDashboardProductService} from "./services/adm-dashboard-product/adm-dashboard-product.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AdmDashboardSettingsCategoriesComponent} from "../../adm-dashboard-settings-categories/adm-dashboard-settings-categories.component";
+import {AdmDashboardCategoriesService} from "./services/adm-dashboard-categories/adm-dashboard-categories.service";
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import {AdmDashboardSettingsCategoriesComponent} from "../../adm-dashboard-setti
         AdmDashboardSettingsCategoriesComponent
     ],
     providers: [
-        AdmDashboardProductService
+        AdmDashboardProductService,
+        AdmDashboardCategoriesService
     ]
 })
 export class AdmDashboardModule {
