@@ -5,6 +5,29 @@
             <label>Название продукта:
                 <input type="text" formControlName="productName">
             </label>
+            <br>
+            <label>Артикул продукта:
+                <input type="number" formControlName="productArticle">
+            </label>
+            <br>
+            <label>Описание продукта:
+                <input type="text" formControlName="productDescription">
+            </label>
+            <br>
+            <label>Категория продукта:
+                <select formControlName="productCategory">
+                    <option value="null"
+                            [attr.selected]="true"
+                            [attr.disabled]="true">
+                        Выберите категорию
+                    </option>
+                    <option *ngFor="let category of categories"
+                            [value]="category">
+                        {{category}}
+                    </option>
+                </select>
+            </label>
+
         </form>
         <br>
     </div>

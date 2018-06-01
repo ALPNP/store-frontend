@@ -9,6 +9,7 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 })
 export class AdmDashboardProductAddComponent implements OnInit {
     productForm: FormGroup;
+    categories: string[] = ['1', '2', '2', '2', '2', '2'];
 
     constructor(productService: AdmDashboardProductService) {
     }
@@ -19,7 +20,10 @@ export class AdmDashboardProductAddComponent implements OnInit {
 
     formInit() {
         this.productForm = new FormGroup({
-            productName: new FormControl('', Validators.required)
+            productName: new FormControl('', Validators.required),
+            productArticle: new FormControl('', Validators.required),
+            productDescription: new FormControl('', Validators.required),
+            productCategory: new FormControl(null, Validators.required)
         });
     }
 
